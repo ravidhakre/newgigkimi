@@ -75,7 +75,7 @@ export default function Pricing() {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-              <p className={plan.highlighted ? 'text-indigo-100' : 'text-gray-600'} className="mb-4">
+              <p className={`mb-4 ${plan.highlighted ? 'text-indigo-100' : 'text-gray-600'}`}>
                 {plan.description}
               </p>
               <div className="mb-6">
