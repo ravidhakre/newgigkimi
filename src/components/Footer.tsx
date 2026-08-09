@@ -1,73 +1,56 @@
-'use client';
+"use client";
 
-import { FiFacebook, FiTwitter, FiLinkedin, FiInstagram } from 'react-icons/fi';
+import { Rocket, Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
+
+const links = {
+  Company: ["About Us", "Careers", "Press", "Blog"],
+  Services: ["Financial Products", "Delivery Fleet", "KYC Verification", "Corporate Hiring"],
+  Support: ["Help Center", "Contact Us", "Privacy Policy", "Terms of Service"],
+};
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-dark text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
-          {/* Brand */}
-          <div>
-            <h3 className="text-2xl font-bold mb-4 text-primary">NewGig</h3>
-            <p className="text-gray-400 mb-6">
-              Transforming businesses through innovative digital solutions.
-            </p>
-            <div className="flex gap-4">
-              <FiFacebook className="text-xl hover:text-primary cursor-pointer transition" />
-              <FiTwitter className="text-xl hover:text-primary cursor-pointer transition" />
-              <FiLinkedin className="text-xl hover:text-primary cursor-pointer transition" />
-              <FiInstagram className="text-xl hover:text-primary cursor-pointer transition" />
-            </div>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="font-bold text-lg mb-4">Company</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-primary transition">About Us</a></li>
-              <li><a href="#" className="hover:text-primary transition">Blog</a></li>
-              <li><a href="#" className="hover:text-primary transition">Careers</a></li>
-              <li><a href="#" className="hover:text-primary transition">Press</a></li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="font-bold text-lg mb-4">Services</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-primary transition">Web Development</a></li>
-              <li><a href="#" className="hover:text-primary transition">Mobile Apps</a></li>
-              <li><a href="#" className="hover:text-primary transition">Consulting</a></li>
-              <li><a href="#" className="hover:text-primary transition">Support</a></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-bold text-lg mb-4">Contact</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="mailto:info@newgig.com" className="hover:text-primary transition">info@newgig.com</a></li>
-              <li><a href="tel:+919876543210" className="hover:text-primary transition">+91 9876543210</a></li>
-              <li>Mumbai, India</li>
-              <li className="pt-2"><a href="#" className="hover:text-primary transition">Get Support</a></li>
-            </ul>
+    <footer className="bg-dark/80 border-t border-white/10 pt-16 pb-8 px-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="lg:col-span-1">
+          <a href="#" className="flex items-center gap-2 text-2xl font-extrabold gradient-primary bg-clip-text text-transparent mb-4">
+            <Rocket className="w-7 h-7 text-primary" />
+            SRYN
+          </a>
+          <p className="text-gray text-sm leading-relaxed mb-6">
+            India's premier corporate workforce solutions partner. Scaling logistics, banking, and retail operations with certified field forces since 2020.
+          </p>
+          <div className="flex gap-3">
+            {[Linkedin, Twitter, Instagram, Facebook].map((Icon, i) => (
+              <a
+                key={i}
+                href="#"
+                className="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-gray hover:bg-primary hover:text-white hover:border-primary transition-all hover:-translate-y-1"
+              >
+                <Icon className="w-4 h-4" />
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-gray-700 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center text-gray-400">
-            <p>&copy; {currentYear} NewGig. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-primary transition">Privacy Policy</a>
-              <a href="#" className="hover:text-primary transition">Terms of Service</a>
-              <a href="#" className="hover:text-primary transition">Cookie Policy</a>
-            </div>
+        {Object.entries(links).map(([title, items]) => (
+          <div key={title}>
+            <h4 className="font-bold mb-4">{title}</h4>
+            <ul className="space-y-3">
+              {items.map((item) => (
+                <li key={item}>
+                  <a href="#" className="text-gray text-sm hover:text-primary hover:pl-1 transition-all">
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+        ))}
+      </div>
+
+      <div className="max-w-6xl mx-auto text-center pt-8 border-t border-white/10 text-gray text-sm">
+        <p>© 2026 SRYN (Gig Sathi). All rights reserved. Made with ❤️ in India</p>
       </div>
     </footer>
   );
