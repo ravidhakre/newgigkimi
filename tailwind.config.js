@@ -1,37 +1,44 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from "tailwindcss";
+
+const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      colors: {
-        primary: '#6366f1',
-        secondary: '#ec4899',
-        accent: '#f59e0b',
-        dark: '#0f172a',
-        light: '#f8fafc',
-      },
       fontFamily: {
-        sans: ['Segoe UI', 'Roboto', 'sans-serif'],
+        inter: ["var(--font-inter)", "sans-serif"],
+        grotesk: ["var(--font-grotesk)", "sans-serif"],
+      },
+      colors: {
+        primary: "#6366f1",
+        "primary-dark": "#4f46e5",
+        secondary: "#ec4899",
+        accent: "#06b6d4",
+        dark: "#0f172a",
+        darker: "#020617",
+        light: "#f8fafc",
+        gray: "#94a3b8",
       },
       animation: {
-        fadeIn: 'fadeIn 0.5s ease-in-out',
-        slideUp: 'slideUp 0.5s ease-out',
+        float: "float 20s infinite ease-in-out",
+        marquee: "marquee 30s linear infinite",
       },
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+        float: {
+          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+          "33%": { transform: "translate(30px, -30px) scale(1.1)" },
+          "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
         },
-        slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
     },
   },
   plugins: [],
 };
+
+export default config;
