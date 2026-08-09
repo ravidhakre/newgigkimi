@@ -1,6 +1,6 @@
 'use client';
 
-import { FiCode, FiSmartphone, FiBarChart3, FiShield, FiUsers, FiZap } from 'react-icons/fi';
+import { FiCode, FiSmartphone, FiBarChart2, FiShield, FiUsers, FiZap } from 'react-icons/fi';
 
 const services = [
   {
@@ -14,7 +14,7 @@ const services = [
     description: 'Native and cross-platform mobile applications tailored to your business needs.',
   },
   {
-    icon: FiBarChart3,
+    icon: FiBarChart2,
     title: 'Analytics & Insights',
     description: 'Data-driven solutions to understand your customers and optimize operations.',
   },
